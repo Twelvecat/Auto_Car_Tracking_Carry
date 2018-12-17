@@ -1,0 +1,80 @@
+C51 COMPILER V9.01   电籣瞋试                                                              11/24/2018 15:27:04 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE 电籣瞋试
+OBJECT MODULE PLACED IN 电机测试.OBJ
+COMPILER INVOKED BY: E:\KEIL\C51\BIN\C51.EXE 电机测试.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<reg52.h>
+   2          sbit IN1=P1^4;
+   3          sbit IN2=P1^3;
+   4          sbit IN3=P1^2;
+   5          sbit IN4=P1^1;
+   6          sbit ENB=P1^0;
+   7          sbit ENA=P1^5;
+   8          void delay(unsigned int z);
+   9          void delay_us(unsigned int aa);
+  10          void main(){
+  11   1              while(1){
+  12   2                      unsigned int i,cycle=0,T=2048;
+  13   2                      IN4=IN1=1;
+  14   2                      IN3=IN2=0;
+  15   2                      ENA=ENB=1;
+  16   2                      for(i=0;i<2000;i++){
+  17   3                              delay(10);
+  18   3                              
+  19   3                              
+  20   3                      }
+  21   2                      IN4=IN1=0;
+  22   2                      IN3=IN2=1;
+  23   2                      ENA=ENB=1;
+  24   2                      for(i=0;i<2000;i++){
+  25   3                              delay(20);
+  26   3                              
+  27   3                              
+  28   3                      }
+  29   2                      IN4=IN1=1;
+  30   2                      IN3=IN2=0;
+  31   2                      while(cycle!=T){
+  32   3                              ENB=ENA=1;
+  33   3                              delay_us(cycle++);
+  34   3                              ENB=ENA=0;
+  35   3                              delay_us(T-cycle);
+  36   3                      }
+  37   2                      cycle=0;
+  38   2                      IN4=IN1=0;
+  39   2                      IN3=IN2=1;
+  40   2                      while(cycle!=T){
+  41   3                              ENB=ENA=1;
+  42   3                              delay_us(cycle++);
+  43   3                              ENB=ENA=0;
+  44   3                              delay_us(T-cycle);
+  45   3                      }
+  46   2              }
+  47   1      }
+  48          void delay(unsigned int z){
+  49   1              unsigned int x,y;
+  50   1              for(x=z;x>0;x--)
+  51   1                      for(y=110;y>0;y--);
+  52   1      }
+  53          void delay_us(unsigned int aa){
+  54   1              while(aa--);
+  55   1      }
+C51 COMPILER V9.01   电籣瞋试                                                              11/24/2018 15:27:04 PAGE 2   
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    243    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       6
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,55 @@
+C51 COMPILER V9.01   ∂Êª_≤_ ‘                                                              11/24/2018 17:16:45 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE ∂Êª_≤_ ‘
+OBJECT MODULE PLACED IN ∂Êª˙≤‚ ‘.OBJ
+COMPILER INVOKED BY: E:\KEIL\C51\BIN\C51.EXE ∂Êª˙≤‚ ‘.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<reg51.h>
+   2          sbit duoji1=P2^7;
+   3          sbit duoji2=P2^0;
+   4          void aa(unsigned char i){
+   5   1              unsigned char k;
+   6   1              for(;i>0;i--){
+   7   2                      for(k=245;k>0;k--);
+   8   2              }
+   9   1      }
+  10          void main(){
+  11   1              int i=0;
+  12   1              while(1){
+  13   2                      while(i<=500){
+  14   3                              duoji1=duoji2=1;
+  15   3                              aa(2);
+  16   3                              duoji1=0;
+  17   3                              aa(2);
+  18   3                              duoji2=0;
+  19   3                              aa(36);
+  20   3                              i=i+1;
+  21   3                      }
+  22   2                      i=0;
+  23   2                      while(i<=500){
+  24   3                              duoji1=duoji2=1;
+  25   3                              aa(3);
+  26   3                              duoji1=duoji2=0;
+  27   3                              aa(37);
+  28   3                              i=i+1;
+  29   3                      }
+  30   2                      i=0;
+  31   2              }
+  32   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     95    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

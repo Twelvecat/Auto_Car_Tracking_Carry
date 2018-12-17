@@ -1,0 +1,176 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        11/24/2018  15:27:04  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+E:\KEIL\C51\BIN\BL51.EXE STARTUP.obj, 电机测试.obj TO 电机测试3
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  STARTUP.obj (?C_STARTUP)
+  电机测试.obj (电籣瞋试)
+
+
+LINK MAP OF MODULE:  电机测试3 (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0006H     UNIT         _DATA_GROUP_
+            IDATA   000EH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     00BBH     UNIT         ?PR?MAIN?电籣瞋试
+            CODE    00BEH     001EH     UNIT         ?PR?_DELAY?电籣瞋试
+            CODE    00DCH     001AH     UNIT         ?PR?_DELAY_US?电籣瞋试
+            CODE    00F6H     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   电机测试3 (?C_STARTUP)
+
+
+SEGMENT                          DATA_GROUP 
+  +--> CALLED SEGMENT          START    LENGTH
+----------------------------------------------
+?C_C51STARTUP                  -----    -----
+  +--> ?PR?MAIN?电籣瞋试
+
+?PR?MAIN?电籣瞋试              0008H    0006H
+  +--> ?PR?_DELAY?电籣瞋试
+  +--> ?PR?_DELAY_US?电籣瞋试
+
+
+
+SYMBOL TABLE OF MODULE:  电机测试3 (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ?C_STARTUP
+  C:00F6H         SEGMENT       ?C_C51STARTUP
+  I:000EH         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/24/2018  15:27:04  PAGE 2
+
+
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:00F9H         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:00F6H         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:00F6H         LINE#         133
+  C:00F8H         LINE#         134
+  C:00F9H         LINE#         135
+  C:00FAH         LINE#         136
+  C:00FCH         LINE#         185
+  C:00FFH         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        电籣瞋试
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00B0H         PUBLIC        P3
+  D:00A8H         PUBLIC        IE
+  C:00BEH         PUBLIC        _delay
+  D:00B8H         PUBLIC        IP
+  C:0003H         PUBLIC        main
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  B:0090H.4       PUBLIC        IN1
+  B:0090H.3       PUBLIC        IN2
+  B:0090H.2       PUBLIC        IN3
+  B:0090H.1       PUBLIC        IN4
+  B:0090H.5       PUBLIC        ENA
+  B:0090H.0       PUBLIC        ENB
+  C:00EBH         PUBLIC        _delay_us
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          MAIN
+  -------         DO            
+  D:0008H         SYMBOL        i
+  D:000AH         SYMBOL        cycle
+  D:000CH         SYMBOL        T
+  -------         ENDDO         
+  C:0003H         LINE#         10
+  C:0003H         LINE#         11
+  C:0003H         LINE#         12
+  C:000DH         LINE#         13
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/24/2018  15:27:04  PAGE 3
+
+
+  C:0011H         LINE#         14
+  C:0015H         LINE#         15
+  C:0019H         LINE#         16
+  C:001DH         LINE#         17
+  C:0024H         LINE#         20
+  C:0035H         LINE#         21
+  C:0039H         LINE#         22
+  C:003DH         LINE#         23
+  C:0041H         LINE#         24
+  C:0046H         LINE#         25
+  C:004DH         LINE#         28
+  C:005EH         LINE#         29
+  C:0062H         LINE#         30
+  C:0066H         LINE#         31
+  C:0072H         LINE#         32
+  C:0076H         LINE#         33
+  C:0085H         LINE#         34
+  C:0085H         LINE#         35
+  C:0088H         LINE#         36
+  C:008AH         LINE#         37
+  C:008FH         LINE#         38
+  C:0093H         LINE#         39
+  C:0097H         LINE#         40
+  C:00A6H         LINE#         41
+  C:00AAH         LINE#         42
+  C:00B9H         LINE#         43
+  C:00B9H         LINE#         44
+  C:00BCH         LINE#         45
+  -------         ENDPROC       MAIN
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        z
+  -------         DO            
+  D:0006H         SYMBOL        x
+  D:0004H         SYMBOL        y
+  -------         ENDDO         
+  C:00BEH         LINE#         48
+  C:00BEH         LINE#         50
+  C:00C7H         LINE#         51
+  C:00DBH         LINE#         52
+  -------         ENDPROC       _DELAY
+  -------         PROC          L?0033
+  -------         ENDPROC       L?0033
+  -------         PROC          _DELAY_US
+  D:0006H         SYMBOL        aa
+  C:00EBH         LINE#         53
+  C:00EBH         LINE#         54
+  C:00F5H         LINE#         55
+  -------         ENDPROC       _DELAY_US
+  -------         ENDMOD        电籣瞋试
+
+Program Size: data=15.0 xdata=0 code=258
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

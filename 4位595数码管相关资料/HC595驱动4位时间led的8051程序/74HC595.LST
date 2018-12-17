@@ -1,0 +1,135 @@
+C51 COMPILER V9.01   74HC595                                                               12/02/2018 20:27:37 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE 74HC595
+OBJECT MODULE PLACED IN 74HC595.OBJ
+COMPILER INVOKED BY: D:\keil\C51\BIN\C51.EXE 74HC595.c
+
+line level    source
+
+   1          #include <AT89X51.H>
+   2           
+   3           unsigned char code fseg[]={0xc0,0xf9,0xa4,0xb0,0x99,0x92,0x82,0xf8,0x80,0x90};
+   4           unsigned char code segbit[]={0x80,0x40,0x20,0x10,0x08,0x04,0x02,0x01};
+   5           unsigned char  disbuf[4]={0,0,0,0};
+   6          
+   7          
+   8           //-----------------------------------------------------------------------------
+   9          // 函数原形定义
+  10          #define uchar unsigned char
+  11          
+  12          void main (void);                                       // 主函数
+  13          void LED4_Display (void);                       // LED显示
+  14          void LED_OUT(uchar X);                          // LED单字节串行移位函数
+  15          
+  16          unsigned char code LED_0F[];            // LED字模表
+  17          
+  18          sbit DIO = P1^0;                                //串行数据输入
+  19          sbit RCLK  = P1^1;                              //时钟脉冲信号——上升沿有效
+  20          sbit SCLK = P1^2;                               //打入信号————上升沿有效
+  21          
+  22          //-----------------------------------------------------------------------------
+  23          // 全局变量//
+  24          
+  25          //uchar LED[8]; //用于LED的8位显示缓存
+  26          
+  27          
+  28          //*****************************************************************************
+  29          // 主程序
+  30          //
+  31          void main (void) 
+  32          {
+  33   1                              TMOD = 0X01;
+  34   1              TH0 = 0xFC;
+  35   1              TL0 = 0x18;
+  36   1              TR0 = 1;
+  37   1      /*      LED[0]=1;
+  38   1              LED[1]=2;
+  39   1              LED[2]=3;
+  40   1              LED[3]=4;
+  41   1                         */
+  42   1              while(1)
+  43   1              {
+  44   2                      LED4_Display ();
+  45   2              } 
+  46   1      } 
+  47          
+  48          void LED4_Display (void)
+  49          {
+  50   1              unsigned char code *led_table;          // 查表指针
+  51   1              uchar i;
+  52   1              //显示第1位
+  53   1              led_table = LED_0F;
+  54   1              i = *led_table;
+  55   1      
+C51 COMPILER V9.01   74HC595                                                               12/02/2018 20:27:37 PAGE 2   
+
+  56   1              LED_OUT(i);                     
+  57   1              LED_OUT(0x01);          
+  58   1      
+  59   1              RCLK = 0;
+  60   1              RCLK = 1;
+  61   1              //显示第2位
+  62   1              led_table = LED_0F ;
+  63   1              i = *led_table;
+  64   1      
+  65   1              LED_OUT(i);             
+  66   1              LED_OUT(0x02);          
+  67   1      
+  68   1              RCLK = 0;
+  69   1              RCLK = 1;
+  70   1              //显示第3位
+  71   1              led_table = LED_0F ;
+  72   1              i = *led_table;
+  73   1      
+  74   1              LED_OUT(i);                     
+  75   1              LED_OUT(0x04);  
+  76   1      
+  77   1              RCLK = 0;
+  78   1              RCLK = 1;
+  79   1              //显示第4位
+  80   1              led_table = LED_0F;
+  81   1              i = *led_table;
+  82   1      
+  83   1              LED_OUT(i);                     
+  84   1              LED_OUT(0x08);          
+  85   1      
+  86   1              RCLK = 0;
+  87   1              RCLK = 1;
+  88   1      }
+  89          
+  90          void LED_OUT(uchar X)
+  91          {
+  92   1              uchar i;
+  93   1              for(i=8;i>=1;i--)
+  94   1              {
+  95   2                      if (X&0x80) DIO=1; else DIO=0;
+  96   2                      X<<=1;
+  97   2                      SCLK = 0;
+  98   2                      SCLK = 1;
+  99   2              }
+ 100   1      }
+ 101          
+ 102          unsigned char code LED_0F[] = 
+ 103          {// 0    1        2        3    4        5        6        7    8        9        A        b    C    d    E    F    -
+ 104                  0xC0,0xF9,0xA4,0xB0,0x99,0x92,0x82,0xF8,0x80,0x90,0x8C,0xBF,0xC6,0xA1,0x86,0xFF,0xbf
+ 105          };
+ 106          
+ 107          
+ 108          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     86    ----
+   CONSTANT SIZE    =     35    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      4    ----
+   IDATA SIZE       =   ----    ----
+C51 COMPILER V9.01   74HC595                                                               12/02/2018 20:27:37 PAGE 3   
+
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
